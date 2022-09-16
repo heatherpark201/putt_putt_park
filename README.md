@@ -20,15 +20,17 @@ Technologies, Libraries, APIs:
 
 Inplementation Timeline:
     Friday
-        -
+        - Get project set up
+        - Create Board(s) 
     Monday
-        -
+        - Implement velocity and pressure of ball
+        - Implement ball speed
     Tuesday
-        -
+        - Design
     Wednesday
-        -
+        - Design
     Thursday
-        -
+        - Design
 
 
 
