@@ -5,23 +5,16 @@ function GameView(game, ball, hole, ctx) {
     this.hole = hole;
   }
   
-    GameView.MOVES = {
-        w: [0, -1],
-        a: [-1, 0],
-        s: [0, 1],
-        d: [1, 0], 
-    };
+
 
     GameView.prototype.bindKeyHandlers = function bindKeyHandlers() {
         const el = document.getElementById("game");
         el.addEventListener("click", e => {
             this.game.handleClick(e);
-            console.log('test')
         });
 
         
     };
-
 
     GameView.prototype.start = function start() {
         this.bindKeyHandlers();
@@ -46,5 +39,5 @@ function GameView(game, ball, hole, ctx) {
 
   
 
-  module.exports = GameView;
+module.exports = GameView;
   

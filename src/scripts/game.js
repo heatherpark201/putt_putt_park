@@ -10,7 +10,7 @@ class Game {
         this.dim_x = dim_x;
         this.dim_y = dim_y;
         this.ctx = ctx;
-        this.ball = new Ball ([20, 15]);
+        this.ball = new Ball ();
         this.hole = new Hole([780, 480]);
     };
 };
@@ -33,9 +33,20 @@ Game.prototype.draw = function draw(ctx) {
 
 
 
+Game.prototype.checkCollisions = function () {
+    for (let i = 0; i < wall.length; i++) {
+        const border = wall[i];
+        if (this.ball.isCollidedWith(border)) {
+            const collision = this.ball.collideWith(border);
+            if (collision) return;
+        };
+    };
+};
+
+
 Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
     return (pos[0] < 0) || (pos[1] < 0) ||
-      (pos[0] > Game.DIM_X) || (pos[1] > Game.DIM_Y);
+      (pos[0] > this.dim_x) || (pos[1] > this.dim_y);
 };
   
 Game.prototype.step = function () {
@@ -44,12 +55,7 @@ Game.prototype.step = function () {
 };
 
 Game.prototype.handleClick = function(e) {
-    if isMoving(this.ball) {
-        
-    }
     this.step();
-
-
 };
 
 
