@@ -30,7 +30,7 @@ const Util = {
       ChildClass.prototype.constructor = ChildClass;
     },
 
-  };
+};
   
   module.exports = Util;
   
