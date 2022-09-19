@@ -12,37 +12,19 @@ function GameView(game, ball, hole, ctx) {
         d: [1, 0], 
     };
 
-    // GameView.prototype.bindKeyHandlers = function () {
-    //     addEventListener('click', (e) => {
+    GameView.prototype.bindKeyHandlers = function bindKeyHandlers() {
+        const el = document.getElementById("game");
+        el.addEventListener("click", e => {
+            this.game.handleClick(e);
+            console.log('test')
+        });
 
-    //     });
+        
+    };
 
 
-    // }
-    // handleClick(e) {
-        // this.game.playMove(e.target.getAttribute("data-square"))
-    //     this.makeMove((e.target.getAttribute("data-square")))
-    //   }
-    
-    //   makeMove(square) {
-    //     let ele = document.querySelector(`[data-square="${square}"]`);
-    //     if (this.xMoves.includes(square) || this.oMoves.includes(square)) {
-    //       alert('Invalid move loser')
-    //       return
-    //     }
-    //     ele.textContent= this.currentPlayer ? "X" : "O";
-    //     if (this.currentPlayer) {
-    //       this.xMoves.push(square)
-    //       this.currentPlayer = false;
-    //     } else {
-    //       this.oMoves.push(square)
-    //       this.currentPlayer = true;
-    //     };
-    //     console.log(this.xMoves, 'this is x moves')
-    //     console.log(this.oMoves, 'this is o moves')
-    //   }
-  
     GameView.prototype.start = function start() {
+        this.bindKeyHandlers();
         this.lastTime = 0;
         requestAnimationFrame(this.animate.bind(this));
         this.game.draw(this.ctx);
@@ -53,7 +35,7 @@ function GameView(game, ball, hole, ctx) {
     GameView.prototype.animate = function animate(time) {
         const timeDelta = time - this.lastTime;
 
-        this.game.step(timeDelta);
+        // this.game.step(timeDelta);
         this.game.draw(this.ctx);
         this.lastTime = time;
 

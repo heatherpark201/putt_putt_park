@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hole = new Hole([780, 480]);
   const view = new GameView (test,ball, hole, ctx);
   view.start();
-  test.step();
+  // test.step();
   
 });
 

@@ -15,11 +15,6 @@ class Game {
     };
 };
 
-  
-// Game.BG_COLOR = "green";
-// Game.DIM_X = 1000;
-// Game.DIM_Y = 600;
-
 
 Game.prototype.allObjects = function allObjects() {
     return [].concat(this.ball, this.hole);
@@ -46,6 +41,15 @@ Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
 Game.prototype.step = function () {
     setInterval(() => this.ball.move(), 20);
     setInterval(() => this.draw(this.ctx), 20);
+};
+
+Game.prototype.handleClick = function(e) {
+    if isMoving(this.ball) {
+        
+    }
+    this.step();
+
+
 };
 
 
