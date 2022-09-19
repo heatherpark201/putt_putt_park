@@ -17,18 +17,17 @@
 // });
 
 
-const Game = require("./scripts/game");
-// const GameView = require("./scripts/game_view");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const canvasEl = document.getElementsByTagName("canvas")[0];
-  canvasEl.width = Game.DIM_X;
-  canvasEl.height = Game.DIM_Y;
 
+const Game = require("./scripts/game.js");
+const GameView = require("./scripts/game_view.js");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const canvasEl = document.getElementById('game');
   const ctx = canvasEl.getContext("2d");
-  const game = new Game();
-
-  console.log(game);
-  // new GameView(game, ctx).start();
+  const test = new Game ('green', 1000, 600);
+  const view = new GameView (test, ctx);
+  const print = view.start();
+  console.log(print);
 });
 
