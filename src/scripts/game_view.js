@@ -1,8 +1,8 @@
-function GameView(game, ball, hole, ctx) {
+function GameView(game, ctx) {
     this.ctx = ctx;
     this.game = game;
-    this.ball = ball;
-    this.hole = hole;
+    // this.ball = ball;
+    // this.hole = hole;
   }
   
 

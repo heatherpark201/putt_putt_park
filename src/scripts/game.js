@@ -5,12 +5,12 @@ const Hole = require("./hole.js")
 
 
 class Game {
-    constructor(bg, dim_x, dim_y, ctx) {
-        this.bg = bg;
-        this.dim_x = dim_x;
-        this.dim_y = dim_y;
+    constructor(ctx) {
+        this.bg = 'green';
+        this.dim_x = 1000;
+        this.dim_y = 600;
         this.ctx = ctx;
-        this.ball = new Ball ();
+        this.ball = new Ball ([15,3]);
         this.hole = new Hole([780, 480]);
     };
 };
@@ -67,11 +67,16 @@ Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
   
 Game.prototype.step = function () {
     setInterval(() => this.ball.move(), 20);
+    console.log(this.ball.pos);
+    console.log('step');
     setInterval(() => this.draw(this.ctx), 20);
+    console.log('step2')
 };
 
 Game.prototype.handleClick = function(e) {
-    this.step();
+    setInterval(() => this.ball.move(), 20)
+    // setInterval(() => console.log('test'));
+
 };
 
 
