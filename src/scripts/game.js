@@ -58,7 +58,11 @@ Game.prototype.detectEdgeCollisions = function () {
     }
 }
    
-
+Game.prototype.inTheHole = function () {
+    if (this.ball.pos === this.hole.pos) {
+        return true;
+    }
+}
 
 Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
     return (pos[0] < 0) || (pos[1] < 0) ||
@@ -67,16 +71,14 @@ Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
   
 Game.prototype.step = function () {
     setInterval(() => this.ball.move(), 20);
-    console.log(this.ball.pos);
-    console.log('step');
     setInterval(() => this.draw(this.ctx), 20);
-    console.log('step2')
 };
 
 Game.prototype.handleClick = function(e) {
-    setInterval(() => this.ball.move(), 20)
-    // setInterval(() => console.log('test'));
-
+    setInterval(() => this.step(), 20);
+    this.ball.swingPrep();
+    // this.ball.stopMove();
+    console.log('handleclickcheck')
 };
 
 
