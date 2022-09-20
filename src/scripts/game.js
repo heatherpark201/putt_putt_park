@@ -31,29 +31,33 @@ Game.prototype.draw = function draw(ctx) {
     });
 };
 
+const canvasWidth = this.dim_x;
+const canvasHeight = this.dim_y;
 
+// Set a restitution, a lower value will lose more energy when colliding
+const restitution = 0.90;
 
-Game.prototype.checkCollisions = function () {
-    for (let i = 0; i < wall.length; i++) {
-        const border = wall[i];
-        if (this.ball.isCollidedWith(border)) {
-            const collision = this.ball.collideWith(border);
-            if (collision) return;
-        };
-    };
-};
+Game.prototype.detectEdgeCollisions = function () {
+    let ball = this.ball; 
 
-// checkWalls() {
-//     const [x, y] = this.pos;
-//     for (let i = 0; i < level.walls.length; i++) {
-//       const wall = level.walls[i];
-//       const [x1, y1, width, height] = wall.dimensions;
-
-//       const x2 = width + x1;
-//       const y2 = height + y1;
-
-//       if ((y >= y1 && y <= y2) && (x >= x1 && x <= x2)) {
-//         this.inObstacle = true;
+    // Check for left and right
+    if (ball.pos[0] < ball.radius) {
+        ball.vel[0] = Math.abs(ball.vel[0]) * restitution;
+        ball.pos[0] = ball.radius;
+    } else if (ball.pos[0] > canvasWidth - ball.radius) {
+        ball.vel[0] = -Math.abs(ball.vel[0]) * restitution;
+        ball.pos[0] = canvasWidth - ball.radius;
+    }   
+    // Check for bottom and top
+    if (ball.pos[1] < ball.radius) {
+        ball.vel[1] = Math.abs(ball.vel[1]) * restitution;
+        ball.pos[1] = ball.radius;
+    } else if (ball.pos[1] > canvasHeight - ball.radius) {
+        ball.pos[1] = -Math.abs(ball.vel[1]) * restitution;
+        ball.pos[1] = canvasHeight - ball.radius;
+    }
+}
+   
 
 
 Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {

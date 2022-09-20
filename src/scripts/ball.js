@@ -45,6 +45,8 @@ Ball.prototype.swing = function () {
 // }
 
 
+
+
 Ball.prototype.collideWith = function collideWith(wall) {
     if (this.ball instanceof this.wall) {
       [velX, velY] = [velX / -1.5, velY / -1.5];
