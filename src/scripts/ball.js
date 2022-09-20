@@ -1,14 +1,18 @@
 const Util = require("./utils");
 const Game = require("./game.js")
+const Wall = require("./wall.js")
+const Hole = require("./hole.js")
 
 class Ball {
     constructor(pos, game) {
         this.pos = pos ||= [20,15] ;
         this.radius = 6;
-        this.vel = this.manageVel;
+        this.vel = [25,3];
         this.color = 'white';
         this.game = game;
+        this.wall = wall;
         this.isMoving = false;
+        this.inCollision = false;
     };
 };
 
@@ -23,6 +27,12 @@ Ball.prototype.draw = function draw(ctx) {
     ctx.fill();
 };
 
+Ball.prototype.swing = function () {
+  if (!this.isMoving) {
+
+  }
+}
+
 // Ball.prototype.manageVel = function () {
 //     if (Math.abs(velX) < .1 && Math.abs(velY) < .1) {
 //         [velX, velY] = [0, 0];
@@ -34,8 +44,17 @@ Ball.prototype.draw = function draw(ctx) {
 
 // }
 
+
 Ball.prototype.collideWith = function collideWith(wall) {
-    // default do nothing
+    if (this.ball instanceof this.wall) {
+      [velX, velY] = [velX / -1.5, velY / -1.5];
+      return true;
+    } else if (this.ball instanceof Hole) {
+      this.remove();
+      // otherObject.remove();
+      return true;
+    }
+    return false;
   };
 
 Ball.prototype.isCollidedWith = function isCollidedWith(wall) {
@@ -43,10 +62,25 @@ Ball.prototype.isCollidedWith = function isCollidedWith(wall) {
     return centerDist < (this.radius + wall.radius);
   };
 
+// Ball.prototype.checkWalls = function () {
+//     const [x, y] = this.pos;
+//     for (let i = 0; i < walls.length; i++) {
+//       const wall = level.walls[i];
+//       const [x1, y1, width, height] = wall.dimensions;
 
+//       const x2 = width + x1;
+//       const y2 = height + y1;
+
+//       if ((y >= y1 && y <= y2) && (x >= x1 && x <= x2)) {
+//         this.inCollision = true;
+// }
 
 Ball.prototype.move = function move(delta = 0) {
     [velX,velY] = this.vel;
+    if (this.ball.isCollidedWith(wall)) {
+      this.ball.collideWith(wall);
+    }
+
     this.decellerate(velX, velY);
     this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
     console.log(this.isMoving);

@@ -43,6 +43,18 @@ Game.prototype.checkCollisions = function () {
     };
 };
 
+// checkWalls() {
+//     const [x, y] = this.pos;
+//     for (let i = 0; i < level.walls.length; i++) {
+//       const wall = level.walls[i];
+//       const [x1, y1, width, height] = wall.dimensions;
+
+//       const x2 = width + x1;
+//       const y2 = height + y1;
+
+//       if ((y >= y1 && y <= y2) && (x >= x1 && x <= x2)) {
+//         this.inObstacle = true;
+
 
 Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
     return (pos[0] < 0) || (pos[1] < 0) ||
