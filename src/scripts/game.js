@@ -10,8 +10,10 @@ class Game {
         this.dim_x = 1000;
         this.dim_y = 600;
         this.ctx = ctx;
-        this.ball = new Ball ([15,3]);
+        this.ball = new Ball ([400,250]);
         this.hole = new Hole([780, 480]);
+        this.dir = 0;
+        this.pow = 0;
     };
 };
 
@@ -31,32 +33,6 @@ Game.prototype.draw = function draw(ctx) {
     });
 };
 
-const canvasWidth = this.dim_x;
-const canvasHeight = this.dim_y;
-
-// Set a restitution, a lower value will lose more energy when colliding
-const restitution = 0.90;
-
-Game.prototype.detectEdgeCollisions = function () {
-    let ball = this.ball; 
-
-    // Check for left and right
-    if (ball.pos[0] < ball.radius) {
-        ball.vel[0] = Math.abs(ball.vel[0]) * restitution;
-        ball.pos[0] = ball.radius;
-    } else if (ball.pos[0] > canvasWidth - ball.radius) {
-        ball.vel[0] = -Math.abs(ball.vel[0]) * restitution;
-        ball.pos[0] = canvasWidth - ball.radius;
-    }   
-    // Check for bottom and top
-    if (ball.pos[1] < ball.radius) {
-        ball.vel[1] = Math.abs(ball.vel[1]) * restitution;
-        ball.pos[1] = ball.radius;
-    } else if (ball.pos[1] > canvasHeight - ball.radius) {
-        ball.pos[1] = -Math.abs(ball.vel[1]) * restitution;
-        ball.pos[1] = canvasHeight - ball.radius;
-    }
-}
    
 Game.prototype.inTheHole = function () {
     if (this.ball.pos === this.hole.pos) {
@@ -64,10 +40,6 @@ Game.prototype.inTheHole = function () {
     }
 }
 
-Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
-    return (pos[0] < 0) || (pos[1] < 0) ||
-      (pos[0] > this.dim_x) || (pos[1] > this.dim_y);
-};
   
 Game.prototype.step = function () {
     setInterval(() => this.ball.move(), 20);
@@ -78,16 +50,22 @@ Game.prototype.handleClick = function(e) {
     setInterval(() => this.step(), 20);
     this.ball.swingPrep();
     // this.ball.stopMove();
-    console.log('handleclickcheck')
 };
 
 
-/* 
-  get function created to make sure ball is in hole class;
-*/
+Game.prototype.changeDir = function (x) {
+    if (x === "right") {
+        this.dir -= 0.01;
 
-//   Game.prototype.inTheHole = function () {
+    };
 
-//   }
+    if (x === "left") {
+        this.dir += 0.01;
+    };
+
+    console.log(this.dir);
+};
+
+
   
   module.exports = Game;

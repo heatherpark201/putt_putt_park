@@ -1,63 +1,58 @@
 function GameView(game, ctx) {
     this.ctx = ctx;
     this.game = game;
-    // this.ball = ball;
+    this.ball = this.game.ball;
     // this.hole = hole;
   }
   
 
 
-    GameView.prototype.bindKeyHandlers = function bindKeyHandlers() {
-        const el = document.getElementById("game");
-        el.addEventListener("click", e => {
-            this.game.handleClick(e);
+GameView.prototype.bindKeyHandlers = function bindKeyHandlers() {
+    const el = document.getElementById("game");
+    el.addEventListener("click", e => {
+        console.log('test')
+        this.game.handleClick(e);
+    });
     
-        });
+    document.body.addEventListener("keydown", e => {
+        e.preventDefault();
+        if (e.key === 'LeftArrow') { //left arrow
+            this.game.changeDir("left")
+        }
+        if (e.key === 'RightArrow') { //right arrow
+            this.game.changeDir("right")
+        }
+        this.game.changeDir(e);
+    });
+};
 
-        
-    };
-
-
-// GameView.MOVES = {
-//     w: [0, -1],
-//     a: [-1, 0],
-//     s: [0, 1],
-//     d: [1, 0],
-//   };
-  
-//   GameView.prototype.bindKeyHandlers = function bindKeyHandlers() {
-//     const ball = this.ball;
-  
-//     Object.keys(GameView.MOVES).forEach(function(k)  {
-//       const move = GameView.MOVES[k];
-//       key(k, function () { ship.power(move); });
-//     });
-  
-//     key("space", function () { this.game.step(); });
-//   };
-
-    GameView.prototype.start = function start() {
-        this.bindKeyHandlers();
-        this.lastTime = 0;
-        requestAnimationFrame(this.animate.bind(this));
-        this.game.draw(this.ctx);
-    };
+// document.getElementById("someid").addEventListener('click',someEventHander.bind(event,'param1','param2'), false)
 
 
 
-    GameView.prototype.animate = function animate(time) {
-        const timeDelta = time - this.lastTime;
 
-        // this.game.step(timeDelta);
-        this.game.draw(this.ctx);
-        this.lastTime = time;
+GameView.prototype.start = function start() {
+    this.bindKeyHandlers();
+    this.lastTime = 0;
+    requestAnimationFrame(this.animate.bind(this));
+    this.game.draw(this.ctx);
+};
 
-        requestAnimationFrame(this.animate.bind(this));
-    };
 
-  
 
-  
+GameView.prototype.animate = function animate(time) {
+    const timeDelta = time - this.lastTime;
+
+    // this.game.step(timeDelta);
+    this.game.draw(this.ctx);
+    this.lastTime = time;
+
+    requestAnimationFrame(this.animate.bind(this));
+};
+
+/* CONTROLS */
+
+
 
 module.exports = GameView;
   
