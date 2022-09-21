@@ -25,25 +25,7 @@ const Util = {
     return [vec[0] * m, vec[1] * m];
   },
 
-  // vCollision(obj1, obj2) {
-  //   return [(obj2.pos[0] - obj1.pos[0]),(obj2.pos[1] - obj1.pos[1])];
-  // },
-
-  // vCollisionNorm(obj) {
-    // const dist = Util.dist(obj1, obj2);
-
-  //   return [vCollision.pos[0]/dist, vCollison.pos[1]/ dist];
-  // },
-
-  // vRelativeVelocity(obj1_vel, obj2_vel) {
-  //   return [(obj1_vel[0] - obj2_vel[0]), (obj1_vel[1]- obj2_vel[1])];
-  // },
-
-  // speed(relVelocity, collisionNorm) {
-  //   const relVelocity = Util.vRelativeVelocity(obj1_vel, obj2_vel);
-
-  //   return relVelocity[0] * collisionNorm[0] + relVelocity[1] * collisionNorm[1];
-  // }
+  // vCollisio
 
   // inherits(ChildClass, BaseClass) {
   //   ChildClass.prototype = Object.create(BaseClass.prototype);

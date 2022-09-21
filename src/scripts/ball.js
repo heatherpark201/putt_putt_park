@@ -1,6 +1,7 @@
 const Util = require("./utils");
 const Game = require("./game.js")
 const Hole = require("./hole.js")
+const Arrow = require("./arrow.js")
 
 class Ball {
   constructor(pos, game) {
@@ -10,7 +11,8 @@ class Ball {
     this.color = 'white';
     this.game = game;
     this.isMoving = false;
-    this.speed = 15;
+    this.dir = 0;
+    this.pow = 20;
   };
 };
 
@@ -27,9 +29,16 @@ Ball.prototype.draw = function draw(ctx) {
 
 
 Ball.prototype.move = function move(delta = 0) {
+  // const game = this.game;
   pos = this.pos;
   vel = this.vel; 
   
+  
+  
+  if (this.inTheHole()) {
+    console.log('you win!')
+    return;
+  }
 
   this.decellerate(pos, vel);
   pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
@@ -64,6 +73,7 @@ Ball.prototype.decellerate = function (current_pos, vel) {
     if (Math.abs(vx) < .015 && Math.abs(vy) < .015) {
       [vx, vy] = [0, 0];
       this.isMoving = false;
+      this.pow = 0;
     } 
   }
 // 
@@ -71,12 +81,12 @@ Ball.prototype.decellerate = function (current_pos, vel) {
 }
 
 
-Ball.prototype.swingPrep = function (dir, pow) {
+Ball.prototype.swingPrep = function () {
 
-  dir ||= 2   // 0 - 6.3
-  pow ||= 20     // 0.5 = 100%
+  // dir 0 - 6.3
+  // pow ||= 20     // 0.5 = 100%
 
-  let pow_num = (pow / 100) * 0.5
+  let pow_num = (this.pow / 100) * 0.5
 
   if (this.isMoving) {
     return;
@@ -84,15 +94,50 @@ Ball.prototype.swingPrep = function (dir, pow) {
 
   this.isMoving = true;
   let vel = (
-    [(pow_num * Math.cos(dir)),
-    (pow_num * Math.sin(dir))]
+    [(pow_num * Math.cos(this.dir)),
+    (pow_num * Math.sin(this.dir))]
   );
 
-  console.log(dir);
+  console.log(this.dir);
  
   this.vel = vel;
 }; 
 
+Ball.prototype.inTheHole = function () {
+
+  if (this.pos === ([780, 480])) {
+      return true;
+  }
+}
+
+
+
+Ball.prototype.changeDir = function (e) {
+  e.preventDefault();
+  switch (e.key) {
+    case "ArrowLeft":
+      this.dir -= .01;
+      break;
+    case "ArrowRight":
+      this.dir += .01;
+      break;
+  };
+
+  // console.log(this.dir)
+};
+
+Ball.prototype.changePow = function (e) {
+  e.preventDefault();
+  switch (e.key) {
+    // case "space":
+    //   this.pow += 1;
+    //   break;
+    case " ":
+      this.pow += 1;
+      console.log(this.pow);
+      break;
+  };
+}
 
 
 Ball.prototype.stopMove = function () {

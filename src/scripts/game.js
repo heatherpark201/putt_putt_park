@@ -1,7 +1,8 @@
 const Ball = require("./ball.js");
 const Utils = require("./utils.js");
 const Hole = require("./hole.js")
-// const Putter = require("./putter.js");
+const Arrow = require("./arrow.js")
+const Power = require("./power.js");
 
 
 class Game {
@@ -10,16 +11,16 @@ class Game {
         this.dim_x = 1000;
         this.dim_y = 600;
         this.ctx = ctx;
-        this.ball = new Ball ([400,250]);
+        this.ball = new Ball ([15,15]);
         this.hole = new Hole([780, 480]);
-        this.dir = 0;
-        this.pow = 0;
+        this.arrow = new Arrow(this.ball);
+        this.power = new Power(this.ball);
     };
 };
 
 
 Game.prototype.allObjects = function allObjects() {
-    return [].concat(this.ball, this.hole);
+    return [].concat(this.ball, this.hole, this.arrow, this.power);
   };
 
 
@@ -33,12 +34,6 @@ Game.prototype.draw = function draw(ctx) {
     });
 };
 
-   
-Game.prototype.inTheHole = function () {
-    if (this.ball.pos === this.hole.pos) {
-        return true;
-    }
-}
 
   
 Game.prototype.step = function () {
@@ -53,19 +48,4 @@ Game.prototype.handleClick = function(e) {
 };
 
 
-Game.prototype.changeDir = function (x) {
-    if (x === "right") {
-        this.dir -= 0.01;
-
-    };
-
-    if (x === "left") {
-        this.dir += 0.01;
-    };
-
-    console.log(this.dir);
-};
-
-
-  
   module.exports = Game;
