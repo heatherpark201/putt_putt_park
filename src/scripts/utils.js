@@ -25,12 +25,6 @@ const Util = {
     return [vec[0] * m, vec[1] * m];
   },
 
-  // vCollisio
-
-  // inherits(ChildClass, BaseClass) {
-  //   ChildClass.prototype = Object.create(BaseClass.prototype);
-  //   ChildClass.prototype.constructor = ChildClass;
-  // },
 
 };
   

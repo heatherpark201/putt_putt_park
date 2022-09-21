@@ -1,8 +1,16 @@
+const Ball = require("./ball.js");
+const Utils = require("./utils.js");
+const Arrow = require("./arrow.js")
+const Power = require("./power.js");
+
+const FIRSTHOLE = [780,480]
+
 class Hole {
-    constructor(pos) {
-        this.pos = pos;
-        this.radius = 8;
+    constructor() {
+        this.pos = FIRSTHOLE;
+        this.radius = 15;
         this.color = 'black';
+        this.area = Math.PI*Math.pow(this.radius)
     };
 };
 

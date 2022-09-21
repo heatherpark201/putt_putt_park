@@ -3,16 +3,18 @@ const Game = require("./game.js")
 const Hole = require("./hole.js")
 const Arrow = require("./arrow.js")
 
+const BALLSTART = [15,15]
+
 class Ball {
-  constructor(pos, game) {
-    this.pos = pos;
+  constructor() {
+    this.pos = BALLSTART;
     this.radius = 6;
     this.vel = [0,0];
     this.color = 'white';
     this.game = game;
     this.isMoving = false;
-    this.dir = 0;
-    this.pow = 20;
+    this.dir = 0; 
+    this.pow = 20; //set max power to 100. 
   };
 };
 
@@ -116,10 +118,10 @@ Ball.prototype.changeDir = function (e) {
   e.preventDefault();
   switch (e.key) {
     case "ArrowLeft":
-      this.dir -= .01;
+      this.dir -= .05;
       break;
     case "ArrowRight":
-      this.dir += .01;
+      this.dir += .05;
       break;
   };
 
@@ -133,7 +135,7 @@ Ball.prototype.changePow = function (e) {
     //   this.pow += 1;
     //   break;
     case " ":
-      this.pow += 1;
+      this.pow += 1.5;
       console.log(this.pow);
       break;
   };

@@ -4,3 +4,14 @@ body {
     height: 100%;
     font-family: Optima, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#gameStats {
+    margin-left: 15px;
+}
