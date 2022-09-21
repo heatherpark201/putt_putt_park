@@ -3,14 +3,13 @@ const Utils = require("./utils.js");
 const Arrow = require("./arrow.js")
 const Power = require("./power.js");
 
-const FIRSTHOLE = [780,480]
+const FIRSTHOLE = [780,480];
 
 class Hole {
-    constructor() {
+    constructor(game) {
         this.pos = FIRSTHOLE;
         this.radius = 15;
         this.color = 'black';
-        this.area = Math.PI*Math.pow(this.radius)
     };
 };
 

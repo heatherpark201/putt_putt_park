@@ -11,8 +11,8 @@ class Game {
         this.dim_x = 1000;
         this.dim_y = 600;
         this.ctx = ctx;
-        this.ball = new Ball();
-        this.hole = new Hole();
+        this.ball = new Ball(this);
+        this.hole = new Hole(this);
         this.arrow = new Arrow(this.ball);
     };
 };
@@ -37,15 +37,17 @@ Game.prototype.draw = function draw(ctx) {
   
 Game.prototype.step = function () {
     setInterval(() => this.ball.move(), 20);
-    console.log('test')
     setInterval(() => this.draw(this.ctx), 20);
 };
 
 Game.prototype.handleClick = function(e) {
-    setInterval(() => this.step(), 20);
-    this.ball.swingPrep();
-    // this.ball.stopMove();
+    e.preventDefault();
+  switch (e.key) {
+    case "ArrowUp":
+        setInterval(() => this.step(), 20);
+        this.ball.swingPrep();
+  };
 };
-
+    
 
   module.exports = Game;

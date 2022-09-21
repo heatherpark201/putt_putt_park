@@ -3,10 +3,11 @@ const Game = require("./game.js")
 const Hole = require("./hole.js")
 const Arrow = require("./arrow.js")
 
-const BALLSTART = [15,15]
+const BALLSTART = [15,15];
+const FIRSTHOLE = [780,480];
 
 class Ball {
-  constructor() {
+  constructor(game) {
     this.pos = BALLSTART;
     this.radius = 6;
     this.vel = [0,0];
@@ -15,6 +16,7 @@ class Ball {
     this.isMoving = false;
     this.dir = 0; 
     this.pow = 20; //set max power to 100. 
+    this.hole = this.game.hole;
   };
 };
 
@@ -45,9 +47,6 @@ Ball.prototype.move = function move(delta = 0) {
   this.decellerate(pos, vel);
   pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
   this.pos = pos;
-  // console.log(this.pos)
-  // console.log(this.vel)
-
   return this.pos;
 };
 
@@ -99,18 +98,16 @@ Ball.prototype.swingPrep = function () {
     [(pow_num * Math.cos(this.dir)),
     (pow_num * Math.sin(this.dir))]
   );
-
-  console.log(this.dir);
  
   this.vel = vel;
 }; 
 
 Ball.prototype.inTheHole = function () {
+  const centerDist = Util.dist(this.pos, [780,480]);
+  console.log('running')
 
-  if (this.pos === ([780, 480])) {
-      return true;
-  }
-}
+  return centerDist < (this.radius + 15 - 5);
+};
 
 
 
@@ -136,7 +133,6 @@ Ball.prototype.changePow = function (e) {
     //   break;
     case " ":
       this.pow += 1.5;
-      console.log(this.pow);
       break;
   };
 }

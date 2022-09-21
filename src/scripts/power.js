@@ -19,18 +19,18 @@ ctx.textAlign = "bottom";
 ctx.fillStyle = "pink";
 ctx.fillText("Power:", 100,100);
 
-//power interior
+//power interior ctx.fillRect(upperLeftCornerX,upperLeftCornerY,width,height);
 const ball = this.ball;
 const fill = ball.pow;
 ctx.beginPath();
-ctx.fillStyle = "red";
-ctx.rect(550, 435, fill, 30);
+ctx.fillStyle = "pink";
+ctx.rect(75,300, fill, 300);
 ctx.fill();
 ctx.stroke();
 
 //power exterior
 ctx.beginPath();
-ctx.rect(550, 435, 120, 30);
+ctx.rect(75,300, 100, 300);
 ctx.stroke();
 }
 

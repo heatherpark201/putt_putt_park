@@ -27,9 +27,9 @@ Arrow.prototype.draw = function (ctx) {
 }
 
 function canvasArrow(ctx, fromx, fromy, theta) {
-  const toy = 100 * Math.sin(theta) + fromy;
-  const tox = 100 * Math.cos(theta) + fromx;
-  var headlen = 10;   // length of head in pixels
+  const toy = 50 * Math.sin(theta) + fromy;
+  const tox = 50 * Math.cos(theta) + fromx;
+  var headlen = 10;
   ctx.moveTo(fromx, fromy);
   ctx.lineTo(tox, toy);
   ctx.moveTo(tox, toy);
