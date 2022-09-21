@@ -38,5 +38,5 @@ function canvasArrow(ctx, fromx, fromy, theta) {
   ctx.lineTo(tox-headlen*Math.cos(theta+Math.PI/6),toy-headlen*Math.sin(theta+Math.PI/6));
 };
 
-
+//source : https://stackoverflow.com/questions/808826/draw-arrow-on-canvas-tag
 module.exports = Arrow;

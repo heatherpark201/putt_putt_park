@@ -24,8 +24,14 @@ GameStats.prototype.allObjects = function allObjects() {
 
 GameStats.prototype.draw = function draw(ctx) {
     this.ctx = ctx;
-    ctx.fillStyle = 'beige';
-    ctx.fillRect(0,0, 300, 500);
+    ctx.fillStyle = `#FFF0F5`;
+    ctx.fillRect(72,250, 400, 250) //20px on left margin so 300/2 + 15
+
+    ctx.beginPath();
+    ctx.font = "30px Didot";
+    ctx.textAlign = "top";
+    ctx.fillStyle = "#00008B";
+    ctx.fillText("HP's Clubhouse", 80,300);   
 
     this.allObjects().forEach(function(object) {
         object.draw(ctx);

@@ -20,8 +20,7 @@
   }
   
   .header a.logo {
-    font-size: 25px;
-    font-weight: bold;
+    background-image: url('../assets/logo-no-background.png');
   }
   
   

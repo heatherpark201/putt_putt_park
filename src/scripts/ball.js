@@ -15,20 +15,25 @@ class Ball {
     this.game = game;
     this.isMoving = false;
     this.dir = 0; 
-    this.pow = 20; //set max power to 100. 
+    this.pow = 0; //set max power to 100. 
     this.hole = this.game.hole;
   };
 };
 
 
 Ball.prototype.draw = function draw(ctx) {
-  ctx.beginPath();
-  ctx.arc(this.pos[0],this.pos[1], this.radius, 0, 2 * Math.PI, true);
-  ctx.strokeStyle = 'white';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-  ctx.fillStyle = this.color;
-  ctx.fill();
+  if (this.game.ballInHole) {
+    return;
+  } else {
+    ctx.beginPath();
+    ctx.arc(this.pos[0],this.pos[1], this.radius, 0, 2 * Math.PI, true);
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  };
+
 };
 
 
@@ -40,7 +45,8 @@ Ball.prototype.move = function move(delta = 0) {
   
   
   if (this.inTheHole()) {
-    console.log('you win!')
+    this.game.ballInHole = true;
+    
     return;
   }
 
@@ -48,6 +54,7 @@ Ball.prototype.move = function move(delta = 0) {
   pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
   this.pos = pos;
   return this.pos;
+ 
 };
 
 
@@ -100,16 +107,19 @@ Ball.prototype.swingPrep = function () {
   );
  
   this.vel = vel;
+  console.log(this.vel);
 }; 
 
-Ball.prototype.inTheHole = function () {
-  const centerDist = Util.dist(this.pos, [780,480]);
-  console.log('running')
 
-  return centerDist < (this.radius + 15 - 5);
+Ball.prototype.inTheHole = function () {
+  const centerDist = Util.dist(this.pos, [780,480])
+
+  return (centerDist < (this.radius + 15 - 8)) && (this.vel[0] < .1); 
+
+
 };
 
-
+//[0.09491359571461301, 0.06493388444042907]
 
 Ball.prototype.changeDir = function (e) {
   e.preventDefault();
@@ -132,19 +142,17 @@ Ball.prototype.changePow = function (e) {
     return;
   }
 
-
   e.preventDefault();
   switch (e.key) {
     case "z":
     case "Z":
-      this.pow += 1;
+      this.pow -= 3;
       break;
     case " ":
-      this.pow += 1.5;
+      this.pow += 3;
       break;
   };
 
-  
 }
 
 

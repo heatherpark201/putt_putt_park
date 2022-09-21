@@ -1,8 +1,8 @@
 
 body {
-    background-image: linear-gradient(to bottom, rgba(245,246,252,0.5), rgba(117,19,93,0.7)), url('../assets/goodbg.jpeg');
+    background-image: linear-gradient(to bottom, rgba(245,246,252,0.5), rgba(117,19,93,0.6)), url('../assets/goodbg.jpeg');
     background-position: center;
-    height: 100vw;
+    height: 100vh;
     width: 100vw;
     /* background-repeat: no-repeat; */
     background-size: cover;
@@ -13,9 +13,25 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
+
 #gameStats {
-  margin-left: 15px;
+    margin-left: 20px;
+    border-radius: 15px;
+    background-image: url('../assets/pink_house.png');
+    background-size: 600px 520px;
+    background-repeat: no-repeat;
+}
+
+.winScreen {
+    top: 45vw;
+    left: 40vw;
+    position: absolute; 
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    background-color: white;
+    display: none;
 }
