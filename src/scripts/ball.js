@@ -128,9 +128,10 @@ Ball.prototype.changeDir = function (e) {
 Ball.prototype.changePow = function (e) {
   e.preventDefault();
   switch (e.key) {
-    // case "space":
-    //   this.pow += 1;
-    //   break;
+    case "z":
+    case "Z":
+      this.pow += 1;
+      break;
     case " ":
       this.pow += 1.5;
       break;

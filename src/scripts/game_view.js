@@ -16,6 +16,7 @@ GameView.prototype.bindKeyHandlers = function bindKeyHandlers() {
         this.ball.changeDir(e);
         this.ball.changePow(e);
         this.game.handleClick(e);
+        // this.restart(e);
     });
 };
 
@@ -40,6 +41,18 @@ GameView.prototype.animate = function animate(time) {
 
     requestAnimationFrame(this.animate.bind(this));
 };
+
+// GameView.prototype.restart = function (e) {
+//     e.preventDefault();
+//     console.log('restart')
+//     switch (e.key) {
+//       case "r":
+//       case "R":
+//         this.start();
+//         break;
+//     };
+// }
+
 
 /* CONTROLS */
 

@@ -19,7 +19,7 @@ class Game {
 
 
 Game.prototype.allObjects = function allObjects() {
-    return [].concat(this.ball, this.hole, this.arrow);
+    return [].concat(this.hole,this.ball, this.arrow);
   };
 
 
