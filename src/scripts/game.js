@@ -4,6 +4,8 @@ const Hole = require("./hole.js")
 const Arrow = require("./arrow.js")
 const Power = require("./power.js");
 const GameStats = require("./game_stats.js")
+const Caddy = require("./caddy.js")
+
 
 
 class Game {
@@ -14,6 +16,9 @@ class Game {
         this.ball = new Ball(this);
         this.hole = new Hole(this);
         this.arrow = new Arrow(this.ball);
+        this.caddy = new Caddy(this);
+        this.strokes = 0;
+
     };
 };
 
@@ -46,6 +51,7 @@ Game.prototype.handleClick = function(e) {
     case "ArrowUp":
         setInterval(() => this.step(), 20);
         this.ball.swingPrep();
+        this.strokes += 1;
   };
 };
     

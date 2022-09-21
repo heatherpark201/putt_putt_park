@@ -4,19 +4,21 @@ const Hole = require("./hole.js")
 const Arrow = require("./arrow.js")
 const Power = require("./power.js");
 const GameView = require('./game_view.js');
+const Caddy = require('./caddy.js')
 
 function GameStats(game, ctx) {
     this.ctx = ctx;
     this.game = game;
     this.ball = this.game.ball
     this.power = new Power(this.ball);
+    this.caddy = this.game.caddy;
 };
   
 
 
 
 GameStats.prototype.allObjects = function allObjects() {
-    return [].concat(this.power);
+    return [].concat(this.power, this.caddy);
 };
 
 

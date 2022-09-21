@@ -126,6 +126,13 @@ Ball.prototype.changeDir = function (e) {
 };
 
 Ball.prototype.changePow = function (e) {
+  const maxPow = 100;
+
+  if (this.pow === maxPow) {
+    return;
+  }
+
+
   e.preventDefault();
   switch (e.key) {
     case "z":
@@ -136,6 +143,8 @@ Ball.prototype.changePow = function (e) {
       this.pow += 1.5;
       break;
   };
+
+  
 }
 
 
