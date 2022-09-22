@@ -4,7 +4,8 @@ const Hole = require("./hole.js")
 const Arrow = require("./arrow.js")
 const Power = require("./power.js");
 const GameStats = require("./game_stats.js")
-const Caddy = require("./caddy.js")
+const Caddy = require("./caddy.js");
+const Obstacle = require("./obstacle.js");
 
 
 
@@ -19,25 +20,33 @@ class Game {
         this.caddy = new Caddy(this);
         this.strokes = 0;
         this.ballInHole = false;
+        this.obstacle = new Obstacle(this);
+        this.obstaclePos = this.obstacle
 
     };
 };
 
 
 Game.prototype.allObjects = function allObjects() {
-    return [].concat(this.hole,this.ball, this.arrow);
+    return [].concat(this.obstacle, this.hole,this.ball, this.arrow);
   };
 
 
 Game.prototype.draw = function draw(ctx) {
     this.ctx = ctx;
-    ctx.fillStyle = '#556B2F';
+    ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0,0,800,500 );
+
+    ctx.beginPath();
+    ctx.rect(0,0,800,500);
+    ctx.strokeStyle = 'green'
+    ctx.lineWidth = 4;
+    ctx.stroke();
 
     const rows = this.dim_x /10; 
     const cols = this.dim_y /10;
 
-    ctx.fillStyle = '#FFF8DC';
+    ctx.fillStyle = '#E6E6FA';
     for (let y = 0; y < cols; y++) {
         for (let x = 0; x < rows; x++) {
             if (x % 2 === 0 && y % 2 === 1 || x % 2 === 1 && y % 2 === 0 ) {
@@ -55,6 +64,7 @@ Game.prototype.draw = function draw(ctx) {
   
 Game.prototype.step = function () {
     setInterval(() => this.ball.move(), 20);
+    setInterval(() => this.obstacle.move(), 20);
     setInterval(() => this.draw(this.ctx), 20);
 };
 

@@ -11,19 +11,21 @@ body {
 
 .container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 175px;
 }
 
 
 #gameStats {
     margin-right: 20px;
     border-radius: 15px;
-    /* background-image: url('../assets/pink_house.png'); */
-    background-size: 600px 520px;
+    background-image: url('../assets/gold_frame.png');
+    background-size: 500px 300px;
     background-repeat: no-repeat;
 }
+
+
 
 .winScreen {
     top: 45vw;

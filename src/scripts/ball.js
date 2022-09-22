@@ -11,12 +11,13 @@ class Ball {
     this.pos = BALLSTART;
     this.radius = 6;
     this.vel = [0,0];
-    this.color = 'white';
+    this.color = 'hotpink';
     this.game = game;
     this.isMoving = false;
     this.dir = 0; 
     this.pow = 0; //set max power to 100. 
     this.hole = this.game.hole;
+    this.obstacle = this.game.obstacle;
   };
 };
 
@@ -24,6 +25,7 @@ class Ball {
 Ball.prototype.draw = function draw(ctx) {
   if (this.game.ballInHole) {
     return;
+
   } else {
     ctx.beginPath();
     ctx.arc(this.pos[0],this.pos[1], this.radius, 0, 2 * Math.PI, true);
@@ -41,16 +43,16 @@ Ball.prototype.move = function move(delta = 0) {
   // const game = this.game;
   pos = this.pos;
   vel = this.vel; 
+  obstaclePos = this.game.obstaclePos;
   
   
   
   if (this.inTheHole()) {
     this.game.ballInHole = true;
-    
     return;
   }
 
-  this.decellerate(pos, vel);
+  this.decellerate(pos, vel, obstaclePos, 25);
   pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
   this.pos = pos;
   return this.pos;
@@ -58,14 +60,20 @@ Ball.prototype.move = function move(delta = 0) {
 };
 
 
-Ball.prototype.decellerate = function (current_pos, vel) {
-  const regFriction = 0.9998
-  const collFriction = 0.9
-  let x = current_pos[0]
-  let y = current_pos[1]
+Ball.prototype.decellerate = function (current_pos, vel, obstaclePos, obstacleRad) {
+  const regFriction = 0.9998;
+  const collFriction = 0.9;
+  let x = current_pos[0];
+  let y = current_pos[1];
   let vx = vel[0];
   let vy = vel[1];
 // 
+
+  if (this.inCollision(obstaclePos, obstacleRad)) {
+    vel = [(-vx * collFriction), vy] //vx friction
+    return this.vel = vel;
+  // 
+} 
   if (x <= 0 || x >= 800 - this.radius) {
     vel = [(-vx * collFriction), vy] //vx friction
     return this.vel = vel;
@@ -115,6 +123,12 @@ Ball.prototype.inTheHole = function () {
   const centerDist = Util.dist(this.pos, [780,480])
 
   return (centerDist < (this.radius + 15 - 8)) && (this.vel[0] < .1); 
+};
+
+Ball.prototype.inCollision = function (obstaclePos, obstacleRad) {
+  const centerDist = Util.dist(this.pos, obstaclePos)
+
+  return (centerDist < (this.radius + obstacleRad))
 
 
 };
