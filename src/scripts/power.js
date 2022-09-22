@@ -56,7 +56,7 @@ Power.prototype.draw = function(ctx) {
   
   //power exterior
   ctx.beginPath();
-  ctx.strokeStyle= "gray";
+  ctx.strokeStyle= "tan ";
   ctx.rect(84,170, 400, 60);
   ctx.stroke();
   

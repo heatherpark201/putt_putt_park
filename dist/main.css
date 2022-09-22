@@ -51,6 +51,7 @@ h1 {
 #p1 {
     font-family: Didot; 
     font-size: 20px;
+    font-weight: bolder;
     text-align: left;
     margin-left: 20px;
     margin-top: 0;
@@ -69,6 +70,7 @@ h1 {
 }   
 #p3 {   
     font-family:Didot;
+    font-weight: bolder;
     font-size: 15px;
     text-align: left;
     margin-left: 20px;

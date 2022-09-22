@@ -26,10 +26,11 @@ GameStats.prototype.draw = function draw(ctx) {
     ctx.fillRect(7,7, 484, 235) //20px on left margin so 300/2 + 15
 
     ctx.beginPath();
-    ctx.font = "35px Didot LT STD";
+    ctx.font = "italic 33px Didot LT STD"
+    // ctx.fontStyle = italic;
     ctx.textAlign = "top";
-    ctx.fillStyle = "#00008B";
-    ctx.fillText("Caddy Updates", 12,50);   
+    ctx.fillStyle = "black";
+    ctx.fillText("Caddy Updates", 20,60);   
 
     this.allObjects().forEach(function(object) {
         object.draw(ctx);
