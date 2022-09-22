@@ -31,7 +31,7 @@ Game.prototype.allObjects = function allObjects() {
 
 Game.prototype.draw = function draw(ctx) {
     this.ctx = ctx;
-    ctx.fillStyle = '#006400';
+    ctx.fillStyle = '#556B2F';
     ctx.fillRect(0,0,800,500 );
 
     const rows = this.dim_x /10; 

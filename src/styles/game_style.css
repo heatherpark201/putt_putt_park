@@ -1,6 +1,6 @@
 
 body {
-    background-image: linear-gradient(to bottom, rgba(245,246,252,0.5), rgba(117,19,93,0.6)), url('../assets/goodbg.jpeg');
+    background-image: linear-gradient(to bottom, rgba(245,246,252,0.6), rgba(245,246,252,0.6)), url('../assets/potent_new.png');
     background-position: center;
     height: 100vh;
     width: 100vw;
@@ -18,9 +18,9 @@ body {
 
 
 #gameStats {
-    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 15px;
-    background-image: url('../assets/pink_house.png');
+    /* background-image: url('../assets/pink_house.png'); */
     background-size: 600px 520px;
     background-repeat: no-repeat;
 }

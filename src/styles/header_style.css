@@ -1,28 +1,39 @@
 
 .header {
-    background: blanchedalmond;
+    background: seashell;
     overflow: hidden;
-    padding: 60px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 
 
-/* Style the header links */
+
+
 .header a {
     float: left;
-    color: black;
+    color: navy;
     text-align: center;
-    padding: 12px;
+    font: "Garamond";
+    padding: 5px;
     text-decoration: none;
     font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+    /* line-height: 25px; */
+
   }
   
-  .header a.logo {
-    background-image: url('../assets/logo-no-background.png');
-  }
-  
+
+
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+    
+}
+   
   
   /* Float the link section to the right */
   .header-right {

@@ -3,7 +3,7 @@
   \*********************************************************************************************************/
 
 body {
-    background-image: linear-gradient(to bottom, rgba(245,246,252,0.5), rgba(117,19,93,0.6)), url('../assets/goodbg.jpeg');
+    background-image: linear-gradient(to bottom, rgba(245,246,252,0.6), rgba(245,246,252,0.6)), url('../assets/potent_new.png');
     background-position: center;
     height: 100vh;
     width: 100vw;
@@ -21,9 +21,9 @@ body {
 
 
 #gameStats {
-    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 15px;
-    background-image: url('../assets/pink_house.png');
+    /* background-image: url('../assets/pink_house.png'); */
     background-size: 600px 520px;
     background-repeat: no-repeat;
 }
@@ -43,29 +43,40 @@ body {
   \***********************************************************************************************************/
 
 .header {
-    background: blanchedalmond;
+    background: seashell;
     overflow: hidden;
-    padding: 60px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 
 
-/* Style the header links */
+
+
 .header a {
     float: left;
-    color: black;
+    color: navy;
     text-align: center;
-    padding: 12px;
+    font: "Garamond";
+    padding: 5px;
     text-decoration: none;
     font-size: 18px;
-    line-height: 25px;
-    border-radius: 4px;
+    /* line-height: 25px; */
+
   }
   
-  .header a.logo {
-    background-image: url('../assets/logo-no-background.png');
-  }
-  
+
+
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+    
+}
+   
   
   /* Float the link section to the right */
   .header-right {
