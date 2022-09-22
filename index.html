@@ -13,22 +13,33 @@
 <div class="header">
     <img class="logo" src="./assets/myLogo.png" alt="no image" width="120" height="120">
     <div class="header-menu">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="#home">About</a>
         <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a href="#about">Leaderboard</a>
     </div>
 </div>
 <body>
     <div class="container">
-        <div class="left-container" style="position: relative;">
-            <div id="clubhouse" width="500" height="250">
-                <img src="./assets/gold_frame.png" width="495" height="255" alt=""></div>
-                <canvas id="gameStats" width="500" height="250"></canvas>
-            </div>
-            <canvas id="game" width="800" height="500"></canvas>
-            <div class="winning" style="position:absolute; top:450px; left: 500px;"> you win! </div>
+        <div class="left-container">
+            <div id="clubhouse" 
+            style="background-image: linear-gradient(to bottom, rgba(245,246,252,0.6), rgba(245,246,252,0.6)), url(./assets/gold_frame.png), url(./assets/clubhousebg.jpeg); background-size:cover; height: 250px; width: 500px;"> 
+            <h1>Welcome to the Putt Putt Clubhouse</h1>
+            <p id="p1">How to play:</p>
+            <p id="p2">1. Putt the ball into the hole with the fewest amount of strokes as possible</p>
+            <p id="p3">2. Be sure to lookout for the walls or the obstacles!</p>
+            <p id="p4">3. Use the keys listed below to manage your putt velocity</p>
+            <p id="p5">- ↔ control the direction of the putt</p>
+            <p id="p6">- SPACE hold down the spacebar to load the power</p>
+            <p id="p7">- Z lessen the amount of power</p>
+            <p id="p8">- ↑ or ↵  putt the ball!!</p>
         </div>
-    </body>
-    <script src="./dist/main.js"></script>
+        <canvas id="gameStats" width="500" height="250"></canvas>
+    </div>
+    <canvas id="game" width="800" height="500"></canvas>
+    <div class="winning" style="position:absolute; top:420px; left: 820px;">Nice shot Great Job You Rock 
+    </div>
+</div>
+<script src="./dist/main.js"></script>
+</body>
 </html>
 

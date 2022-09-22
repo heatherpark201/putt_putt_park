@@ -26,10 +26,10 @@ GameStats.prototype.draw = function draw(ctx) {
     ctx.fillRect(7,7, 484, 235) //20px on left margin so 300/2 + 15
 
     ctx.beginPath();
-    ctx.font = "30px Didot";
+    ctx.font = "35px Didot LT STD";
     ctx.textAlign = "top";
     ctx.fillStyle = "#00008B";
-    ctx.fillText("HP's Clubhouse", 80,300);   
+    ctx.fillText("Caddy Updates", 12,50);   
 
     this.allObjects().forEach(function(object) {
         object.draw(ctx);

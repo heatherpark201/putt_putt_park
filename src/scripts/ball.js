@@ -1,7 +1,8 @@
 const Util = require("./utils");
 const Game = require("./game.js")
 const Hole = require("./hole.js")
-const Arrow = require("./arrow.js")
+const Arrow = require("./arrow.js");
+const Power = require("./power");
 
 const BALLSTART = [15,15];
 const FIRSTHOLE = [780,480];
@@ -128,7 +129,7 @@ Ball.prototype.inTheHole = function () {
 
 Ball.prototype.inCollision = function (obstaclePos, obstacleRad) {
   const centerDist = Util.dist(this.pos, obstaclePos)
-  
+
   return (centerDist < (this.radius + obstacleRad))
 
 
@@ -155,19 +156,21 @@ Ball.prototype.changePow = function (e) {
 
   if (this.pow === maxPow) {
     return;
+    
   }
 
   e.preventDefault();
   switch (e.key) {
     case "z":
     case "Z":
-      this.pow -= 3;
+      this.pow -= 2;
       break;
     case " ":
-      this.pow += 3;
+      this.pow += 2;
       break;
   };
 
+  console.log(this.pow);
 }
 
 

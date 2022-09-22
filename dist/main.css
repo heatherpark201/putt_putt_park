@@ -3,7 +3,7 @@
   \*********************************************************************************************************/
 
 body {
-    background-image: linear-gradient(to bottom, rgba(245,246,252,0.6), rgba(245,246,252,0.6)), url('../assets/potent_new.png');
+    background-image: linear-gradient(to bottom, rgba(245,246,252,0.5), rgba(245,246,252,0.5)), url('../assets/potent_new.png');
     background-position: center;
     height: 100vh;
     width: 100vw;
@@ -21,21 +21,114 @@ body {
 
 .left-container {
     margin-right: 20px;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
 }
 
 #clubhouse {
+    width: 200px;
+    border-radius: 20px;
     display: flex;
-    align-items: flex-start;
-    background-color: white;
-    margin-bottom: 5px;
+    margin: 5px;  
+    margin-bottom: 5px; 
+    flex-direction: column;
+    justify-content: center;
+    /* font-family: "Didot LT STD"; */
 }
 
+
+h1 {
+    font-family: "Didot LT STD";
+    font-size: 26px;
+    text-align: center;
+    font-style: italic;
+    margin-top: 30px;
+
+}
+
+#p1 {
+    font-family: Didot; 
+    font-size: 20px;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+#p2 {
+    font-family: Didot;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}   
+#p3 {   
+    font-family:Didot;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}  
+
+#p4 {
+    font-family: Didot;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}  
+
+#p5 {
+    font-family: Didot;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}   
+#p6 {
+    font-family: Didot;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}   
+#p7 {
+    font-family: Didot;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}   
+#p8 {
+    font-family: Didot;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}   
+
+
+
 #gameStats {
+    border-radius: 20px;
     background-image: url('../assets/gold_frame.png');
     background-size: 500px 250px;
 
@@ -43,18 +136,29 @@ body {
 
 .winning {
     display: none;
-    background-color: aliceblue;
-    width: 300px;
-    height: 300px;
-    
+    background-image: linear-gradient(to bottom, rgba(245,246,252,0.5), rgba(245,246,252,0.5)), url('../assets/tiger.jpeg');
+    background-position: center;
+    background-size: cover;
+    width: 700px;
+    height: 400px;
+    font: Didot;
+    font-size: 100px;
+    text-align: center;
 }
 
 .notWinning {
     display: block;
-    background-color: aliceblue;
-    width: 300px;
-    height: 300px;
+    background-image: linear-gradient(to bottom, rgba(245,246,252,0.5), rgba(245,246,252,0.5)), url('../assets/tiger.jpeg');
+    background-position: center;
+    background-size: cover;
+    width: 700px;
+    height: 400px;
+    font: Didot;
+    font-size: 100px;
+    text-align: center;
 }
+
+
 /*!***********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/header_style.css ***!
   \***********************************************************************************************************/
