@@ -73,7 +73,6 @@ Ball.prototype.decellerate = function (current_pos, vel, obstaclePos, obstacleRa
 
   if (this.inCollision(obstaclePos, obstacleRad)) {
     vel = [(-vx * collFriction), vy] //vx friction
-    // console.log('test')
     return this.vel = vel;
   // 
 } 
