@@ -21,7 +21,7 @@ class Game {
         this.strokes = 0;
         this.ballInHole = false;
         this.obstacle = new Obstacle(this);
-        this.obstaclePos = this.obstacle
+        this.obstaclePos = this.obstacle.pos
 
     };
 };
@@ -34,6 +34,8 @@ Game.prototype.allObjects = function allObjects() {
 
 Game.prototype.draw = function draw(ctx) {
     this.ctx = ctx;
+
+   
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(0,0,800,500 );
 
@@ -46,6 +48,8 @@ Game.prototype.draw = function draw(ctx) {
     const rows = this.dim_x /10; 
     const cols = this.dim_y /10;
 
+    
+    ctx.strokeStyle = 'green'
     ctx.fillStyle = '#E6E6FA';
     for (let y = 0; y < cols; y++) {
         for (let x = 0; x < rows; x++) {
@@ -53,8 +57,7 @@ Game.prototype.draw = function draw(ctx) {
                 ctx.fillRect((x * 100),(y*100),100, 100);
             }
         }
-    }
-
+    } 
 
     this.allObjects().forEach(function(object) {
         object.draw(ctx);
@@ -64,7 +67,7 @@ Game.prototype.draw = function draw(ctx) {
   
 Game.prototype.step = function () {
     setInterval(() => this.ball.move(), 20);
-    setInterval(() => this.obstacle.move(), 20);
+    // setInterval(() => this.obstacle.move(), 20);
     setInterval(() => this.draw(this.ctx), 20);
 };
 

@@ -14,8 +14,9 @@ class Hole {
     };
 };
 
+  
+const wins = document.querySelector(".winning");
 
-// const wins = document.querySelector(".winScreen");
 
 Hole.prototype.draw = function draw(ctx) {
   if (this.game.ballInHole) {
@@ -35,11 +36,11 @@ Hole.prototype.draw = function draw(ctx) {
     ctx.fillStyle = 'white';
     ctx.fill();
     
-    // wins.style.display = "block !important";
-
+    wins.classList.remove("winning")
+    console.log(wins)
+    wins.classList.add("notWinning")
 
   } else {  
-    
     
     ctx.beginPath();
     ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true);

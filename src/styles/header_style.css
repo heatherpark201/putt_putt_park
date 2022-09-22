@@ -9,10 +9,6 @@
     
 }
 
-
-
-
-
 .header a {
     float: left;
     color: navy;
@@ -25,13 +21,9 @@
 
   }
   
-
-
-
 .logo {
   display: flex;
-  align-items: flex-start;
-    
+  align-items: flex-start; 
 }
    
   
@@ -47,8 +39,6 @@
       display: block;
       text-align: left;
     }
-    .header-right {
-      float: none;
-    }
+
   }
 

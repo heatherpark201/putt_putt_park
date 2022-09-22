@@ -67,10 +67,12 @@ Ball.prototype.decellerate = function (current_pos, vel, obstaclePos, obstacleRa
   let y = current_pos[1];
   let vx = vel[0];
   let vy = vel[1];
+
 // 
 
   if (this.inCollision(obstaclePos, obstacleRad)) {
     vel = [(-vx * collFriction), vy] //vx friction
+    // console.log('test')
     return this.vel = vel;
   // 
 } 
@@ -115,7 +117,6 @@ Ball.prototype.swingPrep = function () {
   );
  
   this.vel = vel;
-  console.log(this.vel);
 }; 
 
 
@@ -127,7 +128,7 @@ Ball.prototype.inTheHole = function () {
 
 Ball.prototype.inCollision = function (obstaclePos, obstacleRad) {
   const centerDist = Util.dist(this.pos, obstaclePos)
-
+  
   return (centerDist < (this.radius + obstacleRad))
 
 

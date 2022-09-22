@@ -16,24 +16,39 @@ body {
     margin-top: 175px;
 }
 
-
-#gameStats {
+.left-container {
     margin-right: 20px;
-    border-radius: 15px;
-    background-image: url('../assets/gold_frame.png');
-    background-size: 500px 300px;
-    background-repeat: no-repeat;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-
-
-.winScreen {
-    top: 45vw;
-    left: 40vw;
-    position: absolute; 
-    width: 500px;
-    height: 300px;
-    border: 1px solid black;
+#clubhouse {
+    display: flex;
+    align-items: flex-start;
     background-color: white;
+    margin-bottom: 5px;
+}
+
+#gameStats {
+    background-image: url('../assets/gold_frame.png');
+    background-size: 500px 250px;
+
+}
+
+.winning {
     display: none;
+    background-color: aliceblue;
+    width: 300px;
+    height: 300px;
+    
+}
+
+.notWinning {
+    display: block;
+    background-color: aliceblue;
+    width: 300px;
+    height: 300px;
 }

@@ -13,7 +13,7 @@ Caddy.prototype.draw = function(ctx) {
 
     ctx.beginPath();
     ctx.fillStyle = "#FAF0E6";
-    ctx.rect(250, 390, 200,100);
+    ctx.rect(0,0, 500,100);
     ctx.fill();
     ctx.stroke();
 //(72,250, 400, 250)- board rect dimensions px
@@ -21,13 +21,13 @@ Caddy.prototype.draw = function(ctx) {
     ctx.font = "22px Segoe UI";
     ctx.textAlign = "bottom";
     ctx.fillStyle = "black";
-    ctx.fillText("Total Strokes:", 280, 380);
+    ctx.fillText("Total Strokes:", 200, 380);
 
     ctx.beginPath();
     ctx.font = "30px Segoe UI";
     ctx.textAlign = "bottom";
     ctx.fillStyle = "brown";
-    ctx.fillText(strokeCount, 350, 450);
+    ctx.fillText(strokeCount, 200, 380);
 
   
 }

@@ -15,8 +15,6 @@ function GameStats(game, ctx) {
 };
   
 
-
-
 GameStats.prototype.allObjects = function allObjects() {
     return [].concat(this.power, this.caddy);
 };
@@ -25,7 +23,7 @@ GameStats.prototype.allObjects = function allObjects() {
 GameStats.prototype.draw = function draw(ctx) {
     this.ctx = ctx;
     ctx.fillStyle = `#FFF0F5`;
-    ctx.fillRect(72,250, 400, 250) //20px on left margin so 300/2 + 15
+    ctx.fillRect(7,7, 484, 235) //20px on left margin so 300/2 + 15
 
     ctx.beginPath();
     ctx.font = "30px Didot";
